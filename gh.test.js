@@ -4,9 +4,12 @@ afterEach(() => {
   page.close();
 });
 
+beforeEach(async () => {
+  page = await browser.newPage();
+});
+
 describe("Github page tests", () => {
   beforeEach(async () => {
-    page = await browser.newPage();
     await page.goto("https://github.com/team");
   });
 
@@ -37,7 +40,6 @@ describe("Github page tests", () => {
 
 describe("Github page tests", () => {
   beforeEach(async () => {
-    page = await browser.newPage();
     await page.goto("https://github.com");
   });
 
@@ -69,7 +71,6 @@ describe("Github page tests", () => {
 });
 
 test("Should open 'Join GitHub' title", async () => {
-  page = await browser.newPage();
   await page.goto(
     "https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home"
   );
